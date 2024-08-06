@@ -39,6 +39,8 @@
 #include "ttnn/operations/eltwise/complex_unary_backward/complex_unary_backward_pybind.hpp"
 #include "ttnn/operations/loss/loss_pybind.hpp"
 
+#include "ttnn/operations/test_ops/test_ops_pybind.hpp"
+
 namespace py = pybind11;
 
 namespace ttnn {
@@ -124,6 +126,9 @@ void py_module(py::module& module) {
 
     auto m_experimental = module.def_submodule("experimental", "experimental operations");
     experimental::py_module(m_experimental);
+
+    auto m_test = module.def_submodule("test_ops", "test operations");
+    test_ops::py_module(m_test);
 }
 
 }  // namespace operations
